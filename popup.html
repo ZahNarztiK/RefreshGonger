@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>Shoes Gonger</title>
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="jquery-1.7.2.js"></script>
+<script src="popup.js"></script>
+</head>
+<body>
+<div id="confirm-modal" class="modal hidden">
+	<div class="modal-content">
+		<div class="modal-title">
+			<b>Warning!</b> Time interval is less than a second.<br/>
+			<span class="text-small">You may get banned from the site, suspected DDoSing.</span>
+		</div>
+		<div class="modal-body">
+			<b>Are you sure to start gonging?</b>
+		</div>
+		<div class="modal-footer">
+			<div id="modal-no" class="rg-button no"></div>
+			<div id="modal-yes" class="rg-button yes"></div>
+		</div>
+	</div>
+</div>
+<div id="main" class="container">
+	<section id="header">
+		<div class="sub-section">
+			<div class="label">REFRESH GONGER</div><div class="version">Beta</div>
+		</div>
+	</section>
+	<section id="keyword">
+		<div class="sub-section">
+			<div class="label">KEYWORD</div><div class="inputborder"><input id="rg_keyword" class="dis" type="text" /></div>
+		</div>
+	</section>
+	<section id="interval">
+		<div class="sub-section">
+			<div class="label">INTERVAL</div><div class="inputborder"><input id="rg_interval" class="dis" type="text" align="center" placeHolder="0" maxlength="5" /></div><div class="label">ms</div>
+		</div>
+	</section>
+	<section id="button">
+		<div class="sub-section">
+			<div id="rg_button"></div>
+		</div>
+	</section>
+	<section id="clear">
+		<div class="sub-section">
+			<div class="checkbox">
+				<input id="rg_dataClear" class="chkBox dis" name="dataClear" type="checkbox" />
+				<label for="rg_dataClear"></label>
+			</div>
+			<div id="rg_toggleClearList">
+				<div class="option"></div>
+			</div>
+		</div>
+	</section>
+	<section id="option">
+		<div class="sub-section">
+			<div class="option-list">
+				<div class="checkbox">
+					<input id="rg_inverse" class="chkBox dis" name="inverse" type="checkbox" />
+					<label for="rg_inverse"></label>
+				</div>
+			</div>
+			<div class="option-list">
+				<div class="checkbox">
+					<input id="rg_noredirect" class="chkBox dis" name="noredirect" type="checkbox" />
+					<label for="rg_noredirect"></label>
+				</div>
+			</div>
+			<div class="option-list">
+				<div class="checkbox">
+					<input id="rg_focusFin" class="chkBox dis" name="focusFin" type="checkbox" />
+					<label for="rg_focusFin"></label>
+				</div>
+			</div>
+			<div class="option-list suboption-list">
+				<div class="checkbox minicheckbox">
+					<input id="rg_focusFinW" class="chkBox dis" name="focusFinW" type="checkbox" />
+					<label for="rg_focusFinW"></label>
+				</div>
+			</div>
+			<div class="option-list">
+				<div class="checkbox">
+					<input id="rg_noti" class="chkBox dis" name="noti" type="checkbox" />
+					<label for="rg_noti"></label>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="proxy">
+		<div class="sub-section">
+			<div class="option-list">
+				<div class="checkbox">
+					<input id="rg_proxy" class="chkBox dis" name="proxy" type="checkbox" />
+					<label for="rg_proxy"></label>
+				</div>
+				<div class="ipbox">
+					<div class="label">IP</div><div class="inputborder"><input id="rg_proxyIP" class="dis" type="text" align="center" placeHolder="IPv4:PORT" maxlength="21" /></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section id="counter">
+		<div class="sub-section">
+			<div id="rg_counter">-</div>
+		</div>
+	</section>
+	<section id="clearList">
+		<div class="sub-section">
+			<div class="left">
+				<div class="checkbox">
+					<input id="rg_appcache" class="clearList dis" name="appcache" type="checkbox" />
+					<label for="rg_appcache" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_cache" class="clearList dis" name="cache" type="checkbox" />
+					<label for="rg_cache" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_cookies" class="clearList dis" name="cookies" type="checkbox" />
+					<label for="rg_cookies" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_downloads" class="clearList dis" name="downloads" type="checkbox" />
+					<label for="rg_downloads" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_fileSystems" class="clearList dis" name="fileSystems" type="checkbox" />
+					<label for="rg_fileSystems" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_formData" class="clearList dis" name="formData" type="checkbox" />
+					<label for="rg_formData" class="chkOption"></label>
+				</div>
+			</div>
+			<div class="right">
+				<div class="checkbox">
+					<input id="rg_history" class="clearList dis" name="history" type="checkbox" />
+					<label for="rg_history" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_indexedDB" class="clearList dis" name="indexedDB" type="checkbox" />
+					<label for="rg_indexedDB" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_localStorage" class="clearList dis" name="localStorage" type="checkbox" />
+					<label for="rg_localStorage" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_pluginData" class="clearList dis" name="pluginData" type="checkbox" />
+					<label for="rg_pluginData" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_passwords" class="clearList dis" name="passwords" type="checkbox" />
+					<label for="rg_passwords" class="chkOption"></label>
+				</div>
+				<div class="checkbox">
+					<input id="rg_webSQL" class="clearList dis" name="webSQL" type="checkbox" />
+					<label for="rg_webSQL" class="chkOption"></label>
+				</div>
+			</div>
+			<div class="center">
+				<div id="rg_selectAll">KUYALL</div>
+				<div id="rg_selectNone">NOKUY</div>
+			</div>
+		</div>
+	</section>
+</div>
+</body>
+</html>
